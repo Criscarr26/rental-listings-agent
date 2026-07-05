@@ -1,0 +1,5 @@
+anthropic==0.116.0
+beautifulsoup4==4.15.0
+python-dotenv==1.2.2
+requests==2.34.2
+truststore==0.10.4
