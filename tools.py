@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import csv
 import time
+from datetime import date
 from pathlib import Path
 from urllib import robotparser
 from urllib.parse import urlparse
@@ -143,6 +144,9 @@ class ListingStore:
         row["sector"] = schema.normalize_sector(record["sector"])
         for field in schema.RANGES:
             row[field] = int(row[field])
+        # Stamped here, not by the model: the capture date must be the
+        # real run date, so no run can forget or invent it.
+        row["collected_at"] = date.today().isoformat()
         with open(self.csv_path, "a", encoding="utf-8", newline="") as fh:
             csv.DictWriter(fh, fieldnames=schema.COLUMNS).writerow(row)
 
