@@ -10,8 +10,9 @@ from __future__ import annotations
 
 import unicodedata
 
-# Columns the estimator consumes (its training contract) plus
-# source_url for provenance/auditability of real scraped data.
+# Columns the estimator consumes (its training contract) plus two
+# audit columns: source_url (provenance) and collected_at (capture
+# date, the raw material for price-over-time reports).
 COLUMNS = [
     "sector",
     "area_m2",
@@ -22,6 +23,7 @@ COLUMNS = [
     "age_years",
     "price_dop",
     "source_url",
+    "collected_at",
 ]
 
 # The 10 sectors the deployed estimator knows. Listings outside these

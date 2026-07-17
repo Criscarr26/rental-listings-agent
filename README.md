@@ -48,7 +48,8 @@ Design decisions worth reading in the code:
 - **Honest data only** (`schema.py`): a listing is saved only if the
   core fields are explicit in the page (price in DOP, area, bedrooms,
   bathrooms, known sector). Missing age or price in USD only? The
-  listing is skipped, never guessed. Every row keeps its `source_url`.
+  listing is skipped, never guessed. Every row keeps its `source_url`
+  and the date it was captured (`collected_at`).
 
 ## Responsible scraping
 
@@ -65,7 +66,7 @@ Design decisions worth reading in the code:
 ## Data contract
 
 Output CSV columns (the estimator selects its features by name, so the
-extra provenance column is harmless):
+extra audit columns are harmless):
 
 | Column | Type | Rule |
 | ------ | ---- | ---- |
@@ -78,6 +79,7 @@ extra provenance column is harmless):
 | age_years | int | 0–80, from explicit construction year only |
 | price_dop | int | 5,000–1,000,000 DOP per month, explicit |
 | source_url | str | provenance of every row |
+| collected_at | date | capture date (YYYY-MM-DD), stamped automatically at save time |
 
 ## Setup
 
