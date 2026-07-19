@@ -7,6 +7,12 @@ clean, validated CSV — the exact training contract of
 whose deployed demo currently runs on synthetic data. This project is
 the "real scraped data" item of that roadmap, turned into working code.
 
+> **Note:** active development of this agent continues inside the
+> [Tasador SD](https://github.com/Criscarr26/tasador-sd) platform
+> (`services/listings-agent`), where it gained sitemap discovery, a
+> collection queue and a Supabase sink. This repository remains the
+> standalone portfolio demo.
+
 ## Why an agent instead of a classic scraper
 
 A classic scraper hardcodes CSS selectors and breaks when the site
